@@ -1,0 +1,59 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /blog/blogs/:
+    get:
+      operationId: listblog_lists
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+  /blog/tag/create/:
+    post:
+      operationId: CreateTag
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id001
+              properties:
+                name:
+                  type: string
+                  maxLength: 50
+                slug:
+                  type: string
+                  maxLength: 50
+                  pattern: ^[-a-zA-Z0-9_]+$
+              required:
+              - name
+              - slug
+          application/x-www-form-urlencoded:
+            schema: *id001
+          multipart/form-data:
+            schema: *id001
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  name:
+                    type: string
+                    maxLength: 50
+                  slug:
+                    type: string
+                    maxLength: 50
+                    pattern: ^[-a-zA-Z0-9_]+$
+                required:
+                - name
+                - slug
+          description: ''
