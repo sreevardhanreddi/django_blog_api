@@ -3,7 +3,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.generics import CreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, CreateAPIView, RetrieveUpdateDestroyAPIView
 
 from blog_app.models import *
 from blog_app.serializers import *
@@ -26,12 +26,13 @@ def blog_list(request):
     return paginator.get_paginated_response(serializer.data)
 
 
-class TagCreate(CreateAPIView):
-    queryset = Tags
+class TagCreate(ListCreateAPIView):
+    queryset = Tags.objects.all()
     serializer_class = TagSerializer
     permission_classes = [AllowAny, ]
 
 
-# class TagCreate(RetrieveUpdateDestroyAPIView):
-#     queryset = Tags
-#     serializer_class = TagSerializer
+class CategoryCreate(ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = [AllowAny, ]

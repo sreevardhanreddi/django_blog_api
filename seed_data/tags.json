@@ -1,0 +1,72 @@
+[
+    {
+        "name": "python",
+        "slug": "python",
+        "id": 1
+    },
+    {
+        "name": "javascript",
+        "slug": "javascript",
+        "id": 2
+    },
+    {
+        "name": "tech science",
+        "slug": "tech-science",
+        "id": 3
+    },
+    {
+        "name": "react native",
+        "slug": "react-native",
+        "id": 4
+    },
+    {
+        "name": "react",
+        "slug": "react",
+        "id": 5
+    },
+    {
+        "name": "flutter",
+        "slug": "flutter",
+        "id": 6
+    },
+    {
+        "name": "django",
+        "slug": "django",
+        "id": 7
+    },
+    {
+        "name": "flask",
+        "slug": "flask",
+        "id": 8
+    },
+    {
+        "name": "tornado",
+        "slug": "tornado",
+        "id": 9
+    },
+    {
+        "name": "async io",
+        "slug": "async-io",
+        "id": 10
+    },
+    {
+        "name": "async.io",
+        "slug": "asyncio",
+        "id": 11
+    },
+    {
+        "name": "awesom stuff",
+        "slug": "awesom-stuff",
+        "id": 12
+    },
+    {
+        "name": "test stuff",
+        "slug": "test-stuff",
+        "id": 13
+    },
+    {
+        "name": "check list create",
+        "slug": "check-list-create",
+        "id": 14
+    }
+]

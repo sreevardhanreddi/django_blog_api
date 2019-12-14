@@ -1,0 +1,74 @@
+[
+    {
+        "name": "science and technology",
+        "slug": "science-and-technology",
+        "description": "science and technology",
+        "is_active": true,
+        "user": null,
+        "id": 1
+    },
+    {
+        "name": "life and health",
+        "slug": "life-and-health",
+        "description": "life and health",
+        "is_active": true,
+        "user": null,
+        "id": 2
+    },
+    {
+        "name": "engineering and arts",
+        "slug": "engineering-and-arts",
+        "description": "engineering and arts",
+        "is_active": true,
+        "user": null,
+        "id": 3
+    },
+    {
+        "name": "food and health",
+        "slug": "food-and-health",
+        "description": "food and health",
+        "is_active": true,
+        "user": null,
+        "id": 4
+    },
+    {
+        "name": "economics and market",
+        "slug": "economics-and-market",
+        "description": "economics and market",
+        "is_active": true,
+        "user": null,
+        "id": 5
+    },
+    {
+        "name": "deployment",
+        "slug": "deployment",
+        "description": "server admin and web masters",
+        "is_active": true,
+        "user": null,
+        "id": 6
+    },
+    {
+        "name": "web development",
+        "slug": "web-development",
+        "description": "full stack development",
+        "is_active": true,
+        "user": null,
+        "id": 7
+    },
+    {
+        "name": "front end development",
+        "slug": "front-end-development",
+        "description": "front end development",
+        "is_active": true,
+        "user": null,
+        "id": 8
+    },
+    {
+        "name": "back end development",
+        "slug": "back-end-development",
+        "description": "back end development",
+        "is_active": true,
+        "user": null,
+        "id": 9
+    }
+]

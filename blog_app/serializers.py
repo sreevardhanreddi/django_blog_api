@@ -7,7 +7,7 @@ class TagSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tags
-        fields = ['name', 'slug']
+        fields = ['name', 'slug', 'id']
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = ['name', 'slug', 'description', 'is_active', 'user']
+        fields = ['name', 'slug', 'description', 'is_active', 'user', 'id']
 
 
 class BlogPostSerializer(serializers.ModelSerializer):

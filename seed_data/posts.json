@@ -1,0 +1,199 @@
+[
+    {
+        "title": "nginx wiki",
+        "slug": "nginx-wiki",
+        "created_on": "2019-12-14T11:35:47.214218Z",
+        "updated_on": "2019-12-14",
+        "user": null,
+        "content": "Igor Sysoev began development of Nginx in 2002.[53][9] Originally, Nginx was developed to solve the C10k problem, and to fill the needs of multiple websites including the Rambler search engine and portal, for which it was serving 500 million requests per day by September 2008.[54]\r\n\r\nNginx Inc. was founded in July 2011 by Sysoev and Maxim Konovalov[10][55] to provide commercial products and support for the software.[56]\r\n\r\nThe company's principle place of business is San Francisco, California, while legally incorporated in British Virgin Islands.[10]\r\n\r\nIn October 2011, Nginx, Inc. raised $3 million from BV Capital, Runa Capital, and MSD Capital, Michael Dell's venture fund.[57]\r\n\r\nThe company announced commercial support options for companies using Nginx in production. Nginx offered commercial support in February 2012,[58][59] and paid Nginx Plus subscription in August 2013.[60]Support packages focus on installation, configuration, performance improvement, etc.[61] Support includes proactive notifications about major changes, security patches, updates and patches.\r\n\r\nNginx, Inc. also offers consulting services to assist customers in custom configuration or adding additional features.[62]\r\n\r\nIn October 2013, Nginx, Inc. raised a $10 million series B investment round led by New Enterprise Associates.[63] That round included previous investors, as well as Aaron Levie, CEO and founder of Box.com.[64][65] In December 2014, Nginx raised a $20 million series B1 round led by New Enterprise Associates, with participation from e.ventures (formerly BV Capital), Runa Capital, Index Ventures and Nginx's own CEO Gus Robertson.[66][67]\r\n\r\nIn October 2017, Nginx, Inc. announced general available Nginx Amplify SaaS providing monitoring and analytics capabilities for Nginx.[68]\r\n\r\nIn September 2017, Nginx announced an API management tool, NGINX Controller, which would build off of their API Gateway, NGINX Plus.[69][70]\r\n\r\nIn June 2018, Nginx, Inc. raised $43 million in Series C Funding in a round led by Goldman Sachs \"to Accelerate Application Modernization and Digital Transformation for Enterprises\".[71]\r\n\r\nOn 11 March 2019, F5 Networks acquired Nginx, Inc. for US$670 million.[72]\r\n\r\nOn 12 December 2019, it was reported that the Moscow offices of Nginx Inc. had been raided by police, and that Sysoev and Konovalov had been detained. The raid was conducted under a search warrant connected to a copyright claim over Nginx by Rambler—which asserts that it owns all rights to the code because it was written while he was an employee of the company.[73]",
+        "category": {
+            "name": "science and technology",
+            "slug": "science-and-technology",
+            "description": "science and technology",
+            "is_active": true,
+            "user": null,
+            "id": 1
+        },
+        "tags": [
+            {
+                "name": "python",
+                "slug": "python",
+                "id": 1
+            },
+            {
+                "name": "awesom stuff",
+                "slug": "awesom-stuff",
+                "id": 12
+            }
+        ],
+        "status": "Draft",
+        "keywords": "",
+        "featured_image": null
+    },
+    {
+        "title": "apache web server",
+        "slug": "apache-web-server",
+        "created_on": "2019-12-14T11:38:11.014468Z",
+        "updated_on": "2019-12-14",
+        "user": null,
+        "content": "Instead of implementing a single architecture, Apache provides a variety of MultiProcessing Modules (MPMs), which allow it to run in either a process-based mode, a hybrid (process and thread) mode, or an event-hybrid mode, in order to better match the demands of each particular infrastructure. Choice of MPM and configuration is therefore important. Where compromises in performance must be made, Apache is designed to reduce latency and increase throughput relative to simply handling more requests, thus ensuring consistent and reliable processing of requests within reasonable time-frames.[clarification needed]\r\n\r\nFor delivering static pages, Apache 2.2 series was considered significantly slower than nginx and varnish.[36] To address this issue, the Apache developers created the Event MPM, which mixes the use of several processes and several threads per process in an asynchronous event-based loop.[37][clarification needed] This architecture as implemented in the Apache 2.4 series performs at least as well as event-based web servers, according to Jim Jagielski and other independent sources.[38][39][40] However, some independent but significantly outdated benchmarks show that it is still half as fast as nginx, e.g.[41]",
+        "category": {
+            "name": "science and technology",
+            "slug": "science-and-technology",
+            "description": "science and technology",
+            "is_active": true,
+            "user": null,
+            "id": 1
+        },
+        "tags": [
+            {
+                "name": "django",
+                "slug": "django",
+                "id": 7
+            },
+            {
+                "name": "awesom stuff",
+                "slug": "awesom-stuff",
+                "id": 12
+            }
+        ],
+        "status": "Draft",
+        "keywords": "",
+        "featured_image": "/media/default/blogging.png"
+    },
+    {
+        "title": "dev to js post",
+        "slug": "dev-to-js-post",
+        "created_on": "2019-12-14T11:41:13.902676Z",
+        "updated_on": "2019-12-14",
+        "user": null,
+        "content": "The HTML parser encounters a script tag with a source. Code from this source gets loaded from either the network, cache, or an installed service worker. The response is the requested script as a stream of bytes, which the byte stream decoder takes care of! The byte stream decoder decodes the stream of bytes as it’s being downloaded.\r\n\r\nAlt Text\r\n\r\nThe byte stream decoder creates tokens from the decoded stream of bytes. For example, 0066 decodes to f, 0075 to u, 006e to n, 0063 to c, 0074 to t, 0069 to i, 006f to o, and 006e to n followed by a white space. Seems like you wrote function! This is a reserved keyword in JavaScript, a token gets created, and sent to the parser (and pre-parser, which I didn't cover in the gifs but will explain later). The same happens for the rest of the byte stream.\r\n\r\nAlt Text\r\n\r\nThe engine uses two parsers: the pre-parser, and the parser. The pre-parser only checks the tokens early to see if there are any syntactical errors ❌. This can reduce the amount it takes to spot errors in the code, which otherwise would’ve been discovered later by the parser!\r\n\r\nIf there are no errors, the parser creates nodes based on the tokens it receives from the byte stream decoder. With these nodes, it creates an Abstract Syntax Tree, or AST. 🌳\r\n\r\nAlt Text\r\n\r\nNext, it's time for the interpreter! The interpreter which walks through the AST, and generates byte code based on the information that the AST contains. Once the byte code has been generated fully, the AST is deleted, clearing up memory space. Finally, we have something that a machine can work with! 🎉\r\n\r\nAlt Text\r\n\r\nAlthough byte code is fast, it can be faster. As this bytecode runs, information is being generated. It can detect whether certain behavior happens often, and the types of the data that’s been used. Maybe you've been invoking a function dozens of times: it's time to optimize this so it'll run even faster! 🏃🏽‍♀️\r\n\r\nThe byte code, together with the generated type feedback, is sent to an optimizing compiler. The optimizing compiler takes the byte code and type feedback, and generates highly optimized machine code from these. 🚀\r\n\r\nAlt Text\r\n\r\nJavaScript is a dynamically typed language, meaning that the types of data can change constantly. It would be extremely slow if the JavaScript engine had to check each time which data type a certain value has.\r\n\r\nInstead, the engine uses a technique called inline caching. It caches the code in memory, in the hope that it will return the same value with the same behavior in the future! Say a certain function is invoked a 100 times and has always returned the same value so far. It will assume that it will also return this value the 101st time you invoke it.\r\n\r\nLet’s say that we have the following function sum, that’s (so far) always been called with numerical values as arguments each time:\r\n\r\n\r\n\r\nThis returns the number 3! The next time we invoke it, it will assume that we’re invoking it again with two numerical values.\r\n\r\nIf that’s true, no dynamic lookup is required, and it can just use the result stored in the specific memory slot it already had a reference to. Else, if the assumption was incorrect, it will de-optimize the code and revert back to the original byte code instead of the optimized machine code.\r\n\r\nFor example, the next time we invoke it, we pass a string instead of a number. Since JavaScript is dynamically typed, we can do this without any errors!\r\n\r\n\r\n\r\nThis means that the number 2 will get coerced into a string, and the function will return the string \"12\" instead. It goes back to executing the interpreted bytecode and updates the type feedback.\r\n\r\nI hope this post was useful to you! 😊 Of course, there are many parts to the engine that I haven't covered in this post (JS heap, call stack, etc.) which I might cover later! I definitely encourage you to start to doing some research yourself if you're interested in the internals of JavaScript, V8 is open source and has some great documentation on how it works under the hood! 🤖",
+        "category": {
+            "name": "web development",
+            "slug": "web-development",
+            "description": "full stack development",
+            "is_active": true,
+            "user": null,
+            "id": 7
+        },
+        "tags": [
+            {
+                "name": "javascript",
+                "slug": "javascript",
+                "id": 2
+            }
+        ],
+        "status": "Draft",
+        "keywords": "",
+        "featured_image": "/media/default/blogging.png"
+    },
+    {
+        "title": "django and react dev",
+        "slug": "django-and-react-dev",
+        "created_on": "2019-12-14T11:42:43.895499Z",
+        "updated_on": "2019-12-14",
+        "user": null,
+        "content": "First stop: setup\r\nFor this article, we’re not going to cover the installation of basic tools like Python, for example.\r\n\r\nHere’s the list of things you need to have set up in your machine before you can follow this article:\r\n\r\nPython 3 (if you’re using Linux, chances are that it’s already installed. Run python3 -V command to check)\r\nPip (the default Python package installer)\r\nNodeJS(in a version 6 or plus) and npm (5.2+)\r\nIn the article, we’ll also make use of the handy Python feature: venv.\r\n\r\nIt stands for Python Virtual Environment, and basically allows developers to create a folder that’ll act exactly like a specific Python environment.\r\n\r\nIn other words, every time you add specific packages and modules or a version of a personal library of your own and you don’t want to mix them among your different Python projects locally, you can use venv to create and manage this for each virtual environment you have.\r\n\r\nLet’s start then by installing it on your machine. Run the following command (for Linux):\r\nsudo apt install -y python3-venv\r\nThen, go to a folder of your choice and create the following folder:\r\nmkdir environments\r\nLet’s run the command inside this folder to create our venv (remember to always give it a good name):\r\npython3 -m venv logrocket_env\r\nAfter you enter the created folder, you’ll see some others (bin, lib, share, etc.) to guarantee you are in an isolated context of Python configuration.\r\n\r\nBut before you can make use of it, you have to make sure it’s activated:\r\nsource logrocket_env/bin/activate\r\nThen your command line will look like this: (the name in parentheses is your confirmation that you’re in the venv):\r\n(logrocket_env) diogo@localhost: _\r\nNote: Once inside a venv, you can use the commands pip or python normally. If you’d be out of it, you must go for pip3 and python3.\r\n\r\nThat’s it. You’re good to go with your venv.\r\n\r\nLet’s jump to Django’s installation by running the following command inside of your venv:\r\npip install django djangorestframework django-cors-headers\r\nNote that we’re installing two more dependencies for our API:\r\n\r\n– Django REST Framework: a powerful and flexible toolkit for building Web APIs\r\n\r\n– django-cors-headers: app for handling the server headers required for Cross-Origin Resource Sharing (CORS).\r\n\r\nThis is going to be useful when we try to access the API from a different application (React)\r\n\r\nWe’ll also make use of two Django’s features designed to help us with boilerplate configs:\r\n\r\ndjango-admin: Django’s automatic admin interface. It’s basically a command-line utility to perform handy operations with Django\r\nmanage.py: is a script that will help us to manage our database, creating tables from our models, migration and versioning, as well as the proper creation of our projects\r\nNow, we’ll run the following command to create our API project (remember that you must be inside of your venv):\r\ndjango-admin startproject django_react_proj\r\nAfter the project is created, check the root folder for the manage.py file we mentioned earlier. The rest of the files we’ll explore further.\r\n\r\nLet’s start the configuration by the settings.py inside the django_react_proj/ folder.",
+        "category": {
+            "name": "science and technology",
+            "slug": "science-and-technology",
+            "description": "science and technology",
+            "is_active": true,
+            "user": null,
+            "id": 1
+        },
+        "tags": [
+            {
+                "name": "react",
+                "slug": "react",
+                "id": 5
+            },
+            {
+                "name": "django",
+                "slug": "django",
+                "id": 7
+            }
+        ],
+        "status": "Draft",
+        "keywords": "",
+        "featured_image": "/media/default/blogging.png"
+    },
+    {
+        "title": "react dev to a.s",
+        "slug": "react-dev-to-as",
+        "created_on": "2019-12-14T11:45:18.605054Z",
+        "updated_on": "2019-12-14",
+        "user": null,
+        "content": "React is a JavaScript library build in 2013 by the Facebook development team to make user interfaces more modular (or reusable) and easier to maintain. According to React's website, it is used to \"Build encapsulated components that manage their own state, then compose them to make complex UIs.\"\r\n\r\nI'm going to use a lot of Facebook examples throughout this post since they wrote React in the first place!\r\n\r\nRemember when Facebook moved from just likes to reactions? Instead of just being able to like posts, you can now react with a heart, or a smiley face, or a like to any post. If those reactions were primarily made in HTML, it would be a tremendous amount of work to change all of those likes to reactions and to make sure that they work.\r\n\r\nThis is where React comes in -- instead of implementing the \"separation of concerns\" that gets impressed upon developers from day one, we have a different architecture in React that increases modularity based on a component structure instead of separating the different programming languages.\r\n\r\nToday, we'll keep the CSS separate, but you can even make that component specific if you want!\r\n\r\nReact vs. Vanilla JavaScript\r\nWhen we talk about \"vanilla\" JavaScript, we are normally talking about writing JavaScript code that doesn't use additional libraries like JQuery, React, Angular, or Vue. If you would like to read more about those and what a framework is, I have a post all about web frameworks!\r\n\r\nA couple quick notes before we begin\r\nTo make this tutorial a little more succinct, some code examples have ... before or after them, which means that some code was omitted.\r\nI use Git diffs in some places to show lines of code that will change, so if you copy and paste, you need to delete the + at the beginning of the line.\r\nI have full CodePens with the completed versions of each section -- so you can use those to catch-up!\r\nMore advanced concepts that aren't essential for the tutorial are in blockquotes, these are mostly just facts that I think are interesting!\r\nSet Up\r\nIf you are creating a production React application, you will want to use a build tool, like Webpack, to bundle your code since React utilizes some patterns that won't work by default in the browser. Create React App is super helpful for these purposes, since it does most of the configuration for you!",
+        "category": {
+            "name": "front end development",
+            "slug": "front-end-development",
+            "description": "front end development",
+            "is_active": true,
+            "user": null,
+            "id": 8
+        },
+        "tags": [
+            {
+                "name": "react",
+                "slug": "react",
+                "id": 5
+            }
+        ],
+        "status": "Draft",
+        "keywords": "",
+        "featured_image": "/media/default/blogging.png"
+    },
+    {
+        "title": "dart on dev to",
+        "slug": "dart-on-dev-to",
+        "created_on": "2019-12-14T11:46:01.244681Z",
+        "updated_on": "2019-12-14",
+        "user": null,
+        "content": "So, what's Dart?\r\nDart is an object-oriented programming language by Google, which aims to help the developer build modern web applications. It covers client, server and now mobile with Flutter. It comes with a range of tools including a virtual machine, core libraries and package management repository, lending enough ammunition to get started with on your next project.\r\n\r\nAlthough Flutter is gaining traction, it can easily obscure the beauty of the Dart platform and what it offers, independently of Flutter.\r\n\r\nIn this article we will look at how we can write a Dart program, exploring some of its language features. This will hopefully gear you up with an overview to help you see Dart shining through as you develop your next app.\r\n\r\n→ Continue reading on my blog\r\n\r\nFirst Steps\r\nHere is an example of a Dart program:",
+        "category": {
+            "name": "web development",
+            "slug": "web-development",
+            "description": "full stack development",
+            "is_active": true,
+            "user": null,
+            "id": 7
+        },
+        "tags": [
+            {
+                "name": "flutter",
+                "slug": "flutter",
+                "id": 6
+            }
+        ],
+        "status": "Draft",
+        "keywords": "",
+        "featured_image": "/media/default/blogging.png"
+    },
+    {
+        "title": "react next vs gatsby",
+        "slug": "react-next-vs-gatsby",
+        "created_on": "2019-12-14T11:46:43.131558Z",
+        "updated_on": "2019-12-14",
+        "user": null,
+        "content": "Gatsby & Next - An Introduction\r\nSo what are Gatsby and Next other than buzzwords you have heard mentioned before but never really understood?\r\n\r\nTo put it in the most basic terms, in the same way, create-react-app will create you a boilerplate of a React project, these two frameworks will lay the foundations for you to create an application.\r\n\r\nThey have separated away from create-react-app however, in the sense that they are not classed as boilerplates, but toolkits, laying the foundations and then giving you a set of instructions on how to build the house as well.\r\n\r\nTo summarise:\r\n\r\ncreate-react-app - Lays the foundations of a React Project. The rest is up to you.\r\n\r\nGatsby & Next - Lay the foundations of a React Project. Give you guidelines on how you should build on top of them.\r\n\r\n...\r\n\r\nBut huh? That's strange? They both do... the same thing?\r\n\r\nSort of.\r\n\r\nAt first glance, they both look very similar in the sense they both:\r\n\r\nProvide a boilerplate application.\r\nGenerate incredibly performant, accessible and SEO friendly websites.\r\nCreate Single Page Applications out-of-the-box.\r\nHave a really awesome developer experience.\r\nBut actually, they are fundamentally different.\r\n\r\nServer Side Rendered vs Statically Generated\r\nhuh?\r\n\r\nOk, so we start to get a little bit technical here, so stay with me... It's not too bad!\r\n\r\nGatsby is a static site generator tool. A static site generator generates static HTML on build time. It doesn’t use a server.\r\n\r\nNext.JS is mainly a tool for server-side rendered pages. It dynamically generates the HTML every time a new request comes in with the use of a server.\r\n\r\nOf course, both can call APIs client side. The fundamental difference is Next requires a server to be able to run. Gatsby can function without any server at all.\r\n\r\nGatsby just generates pure HTML/CSS/JS at build time, whereas Next creates HTML/CSS/JS at run time. So each time a new request comes in, it creates a new HTML page from the server.\r\n\r\nI'm not going to go too deep into the pro's and cons of each here, however for some more in-depth reading check out this post - https://dev.to/stereobooster/server-side-rendering-or-ssr-what-is-it-for-and-when-to-use-it-2cpg\r\n\r\nData Handling\r\nAnother fundamental difference between the tools is the way in which they handle data.\r\n\r\nGatsby tells you how you should handle data in your app.\r\n\r\nNext leaves the decision entirely up to you.",
+        "category": {
+            "name": "front end development",
+            "slug": "front-end-development",
+            "description": "front end development",
+            "is_active": true,
+            "user": null,
+            "id": 8
+        },
+        "tags": [
+            {
+                "name": "javascript",
+                "slug": "javascript",
+                "id": 2
+            }
+        ],
+        "status": "Draft",
+        "keywords": "",
+        "featured_image": "/media/default/blogging.png"
+    }
+]
