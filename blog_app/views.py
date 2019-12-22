@@ -7,6 +7,7 @@ from rest_framework.generics import ListCreateAPIView, CreateAPIView, RetrieveUp
 
 from blog_app.models import *
 from blog_app.serializers import *
+import coreapi
 
 # Create your views here.
 
@@ -17,7 +18,10 @@ def index(request):
 
 @api_view(['GET', ])
 @permission_classes([AllowAny, ])
-def blog_list(request):
+def blog_list(request,):
+    """ this return all the blogs, per page = 10 
+    """
+
     paginator = PageNumberPagination()
     paginator.page_size = 10
     blog_posts = Post.objects.all()

@@ -10,6 +10,7 @@ class Tags(models.Model):
     class Meta:
         verbose_name = 'Tags'
         verbose_name_plural = 'Tags'
+        ordering = ('id',)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -30,6 +31,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
+        ordering = ('id',)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -59,10 +61,10 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tags, related_name='rel_posts')
     status = models.CharField(
-        max_length=10, choices=STATUS_CHOICE, default='Drafted')
+        max_length=10, choices=STATUS_CHOICE, default='Draft')
     keywords = models.TextField(max_length=500, blank=True)
     featured_image = models.ImageField(
-        upload_to='uploads/blog_cover_image/', blank=True, null=True, 
+        upload_to='uploads/blog_cover_image/', blank=True, null=True,
         default='/default/blogging.png')
 
     def save(self, *args, **kwargs):
@@ -71,3 +73,6 @@ class Post(models.Model):
 
     def __str__(self):
         return self.slug
+
+    class Meta:
+        ordering = ('id',)

@@ -3,9 +3,9 @@ info:
   title: ''
   version: ''
 paths:
-  /blog/blogs/:
+  /app/logout/:
     get:
-      operationId: listblog_lists
+      operationId: listlogout_views
       description: ''
       parameters: []
       responses:
@@ -16,9 +16,72 @@ paths:
                 type: array
                 items: {}
           description: ''
+  /blog/blogs/:
+    get:
+      operationId: listblog_lists
+      description: this return all the blogs, per page = 10
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
   /blog/tag/create/:
+    get:
+      operationId: listTags
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                  previous:
+                    type: string
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      properties:
+                        name:
+                          type: string
+                          maxLength: 50
+                        slug:
+                          type: string
+                          maxLength: 50
+                          pattern: ^[-a-zA-Z0-9_]+$
+                        id:
+                          type: integer
+                          readOnly: true
+                      required:
+                      - name
+                      - slug
+          description: ''
     post:
-      operationId: CreateTag
+      operationId: CreateTags
       description: ''
       parameters: []
       requestBody:
@@ -53,7 +116,198 @@ paths:
                     type: string
                     maxLength: 50
                     pattern: ^[-a-zA-Z0-9_]+$
+                  id:
+                    type: integer
+                    readOnly: true
                 required:
                 - name
                 - slug
+          description: ''
+  /blog/category/create/:
+    get:
+      operationId: listCategorys
+      description: ''
+      parameters:
+      - name: limit
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: offset
+        required: false
+        in: query
+        description: The initial index from which to return the results.
+        schema:
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    example: 123
+                  next:
+                    type: string
+                    nullable: true
+                  previous:
+                    type: string
+                    nullable: true
+                  results:
+                    type: array
+                    items:
+                      properties:
+                        name:
+                          type: string
+                          maxLength: 200
+                        slug:
+                          type: string
+                          maxLength: 50
+                          pattern: ^[-a-zA-Z0-9_]+$
+                        description:
+                          type: string
+                          maxLength: 500
+                        is_active:
+                          type: boolean
+                        user:
+                          properties: {}
+                          type: object
+                        id:
+                          type: integer
+                          readOnly: true
+                      required:
+                      - name
+                      - slug
+                      - description
+                      - user
+          description: ''
+    post:
+      operationId: CreateCategory
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id002
+              properties:
+                name:
+                  type: string
+                  maxLength: 200
+                slug:
+                  type: string
+                  maxLength: 50
+                  pattern: ^[-a-zA-Z0-9_]+$
+                description:
+                  type: string
+                  maxLength: 500
+                is_active:
+                  type: boolean
+                user:
+                  properties: {}
+                  type: object
+              required:
+              - name
+              - slug
+              - description
+              - user
+          application/x-www-form-urlencoded:
+            schema: *id002
+          multipart/form-data:
+            schema: *id002
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  name:
+                    type: string
+                    maxLength: 200
+                  slug:
+                    type: string
+                    maxLength: 50
+                    pattern: ^[-a-zA-Z0-9_]+$
+                  description:
+                    type: string
+                    maxLength: 500
+                  is_active:
+                    type: boolean
+                  user:
+                    properties: {}
+                    type: object
+                  id:
+                    type: integer
+                    readOnly: true
+                required:
+                - name
+                - slug
+                - description
+                - user
+          description: ''
+  /app/register/:
+    post:
+      operationId: CreateUser
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: &id003
+              properties:
+                username:
+                  type: string
+                  maxLength: 100
+                email:
+                  type: string
+                  format: email
+                  maxLength: 255
+                password:
+                  type: string
+                  writeOnly: true
+                confirm_password:
+                  type: string
+                  writeOnly: true
+              required:
+              - username
+              - email
+              - password
+              - confirm_password
+          application/x-www-form-urlencoded:
+            schema: *id003
+          multipart/form-data:
+            schema: *id003
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  username:
+                    type: string
+                    maxLength: 100
+                  email:
+                    type: string
+                    format: email
+                    maxLength: 255
+                required:
+                - username
+                - email
+          description: ''
+  /app/login/:
+    post:
+      operationId: Createlogin_view
+      description: "logs the user into the app\n---\n parameters:\n  - name: limit\n\
+        \    required: false\n    in: query\n    description: Number of results to\
+        \ return per page.\n    schema:\n      type: integer\n  - name: offset\n \
+        \   required: false\n    in: query\n    description: The initial index from\
+        \ which to return the results.\n    schema:\n      type: integer"
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
           description: ''

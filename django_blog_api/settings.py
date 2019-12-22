@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'graphene_django',
     'common',
     'blog_app',
 ]
@@ -137,11 +138,15 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
-    ),
+    # 'DEFAULT_PERMISSION_CLASSES': (
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 100
+}
+
+GRAPHENE = {
+    'SCHEMA': 'django_blog_api.schema.schema'
 }
 
 
@@ -151,3 +156,9 @@ DATABASES = {
     )
 }
 DEBUG = os.environ.get('DEBUG_STATUS', False)
+
+try:
+    from django_blog_api.settings_dev import *
+except ImportError as e:
+    print('error importing dev settings')
+    print(e)

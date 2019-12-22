@@ -18,10 +18,14 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from rest_framework.schemas import get_schema_view
 from rest_framework.permissions import AllowAny
+from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/', include('common.urls')),
+    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
+    path('app/', include('common.urls')),
     path('blog/', include('blog_app.urls')),
     path('swagger-ui/', TemplateView.as_view(
         template_name='swagger-ui.html',
