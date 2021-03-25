@@ -28,7 +28,7 @@ promise==2.3
 Pygments==2.5.2
 python-dateutil==2.8.1
 pytz==2019.3
-PyYAML==5.2
+PyYAML==5.4
 requests==2.22.0
 Rx==1.6.1
 simplejson==3.17.0
